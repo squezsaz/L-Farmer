@@ -1,0 +1,46 @@
+name: L-Farmer
+version: 1.0.0
+main: com.squezsaz.lfarmer.LFarmer
+api-version: '1.21'
+author: squezsaz
+description: Advanced Multi-Platform Modular Farmer Plugin for 1.21+ and Folia
+folia-supported: true
+
+softdepend:
+  - L-Claim
+  - Vault
+  - PlaceholderAPI
+  - ItemsAdder
+  - SuperiorSkyblock2
+  - BentoBox
+  - Lands
+  - GriefPrevention
+  - WorldGuard
+  - Towny
+  - PlotSquared
+  - ShopGUIPlus
+  - EconomyShopGUI
+  - PlayerPoints
+
+commands:
+  farmer:
+    description: Main farmer command
+    aliases: [ciftci, çiftçi, lfarmer]
+    permission: farmer.use
+
+permissions:
+  farmer.use:
+    description: Permission to use player farmer commands
+    default: true
+  farmer.admin:
+    description: Administrative permission for farmer management
+    default: op
+  farmer.admin.give:
+    description: Permission to give farmer spawn egg items to players
+    default: op
+  farmer.admin.reload:
+    description: Permission to reload plugin configs and locale files
+    default: op
+  farmer.limit.admin:
+    description: Permission to place unlimited farmers without limit restriction
+    default: op

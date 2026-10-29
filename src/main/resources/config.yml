@@ -1,0 +1,266 @@
+# ===================================================
+#             L-Farmer Configuration File
+#                   Author: squezsaz
+# ===================================================
+
+# Active language: en (English) or tr (Turkish)
+language: en
+
+# Server Identifier (Used to distinguish servers in cross-server / network admin panels)
+server_name: "Survival-1"
+
+# Action Logging System
+# All farmer actions are stored in both database and logs/<player>/<date>.log files.
+logging:
+  enabled: true
+  purge_after_days: 15
+
+# Database Settings (SQLITE or MYSQL / MARIADB)
+database:
+  type: SQLITE
+  mysql:
+    host: localhost
+    port: 3306
+    database: lfarmer
+    username: root
+    password: ""
+    ssl: false
+  pool:
+    maximum_pool_size: 10
+    minimum_idle: 2
+
+# Default farmer placement limit per player
+# Custom limit with permission: farmer.limit.X (e.g. farmer.limit.3)
+default_limit: 1
+
+# Worlds where farmer placement is completely disabled (Global Blacklist)
+disabled_worlds:
+  - "world_the_end"
+
+# Farmer Item Settings
+farmer_item:
+  material: VILLAGER_SPAWN_EGG
+  name: "<gold><bold>✦ Farmer Spawn Egg ✦</bold></gold>"
+  custom_model_data: 0
+  lore:
+    - "<gray>Place on your land or island</gray>"
+    - "<gray>to deploy your smart farmer</gray>"
+    - "<gray>with automatic harvesting and collection.</gray>"
+    - ""
+    - "<yellow>▶ Right click on the ground to place.</yellow>"
+
+# NPC Appearance Settings
+# Supported types: VILLAGER, PLAYER, ALLAY, ARMOR_STAND
+npc:
+  type: VILLAGER
+
+# ItemsAdder Custom Model / Entity Integration
+itemsadder:
+  enabled: false
+  custom_model: "custom_namespace:custom_farmer"
+
+# Harvesting System Settings
+harvest:
+  check_interval_ticks: 60
+
+# Ground Item Collection Settings
+ground_collect:
+  check_interval_ticks: 20
+
+# Auto-Sell Settings
+auto_sell:
+  interval_seconds: 60
+  notify_actionbar: true
+
+# Fuel and Salary System Settings
+fuel:
+  enabled: false
+  cost_per_harvest: 0.1
+  cost_per_mob: 0.05
+  cost_per_ground_pickup: 0.02
+  max_capacity: 10000.0
+  salary:
+    cost: 500.0
+    fuel_reward: 1000.0
+  items:
+    COAL: 50.0
+    CHARCOAL: 50.0
+    COAL_BLOCK: 450.0
+    LAVA_BUCKET: 1000.0
+    BLAZE_ROD: 120.0
+
+# Upgrade Levels and Costs
+upgrades:
+  capacity:
+    1:
+      cost: 0
+      value: 5000
+    2:
+      cost: 10000
+      value: 15000
+    3:
+      cost: 25000
+      value: 35000
+    4:
+      cost: 50000
+      value: 75000
+    5:
+      cost: 100000
+      value: 150000
+  range:
+    1:
+      cost: 0
+      value: 0
+    2:
+      cost: 20000
+      value: 1
+    3:
+      cost: 50000
+      value: 2
+  speed:
+    1:
+      cost: 0
+      value: 100
+    2:
+      cost: 15000
+      value: 60
+    3:
+      cost: 35000
+      value: 20
+  fortune:
+    1:
+      cost: 0
+      value: 0
+    2:
+      cost: 15000
+      value: 25
+    3:
+      cost: 30000
+      value: 50
+    4:
+      cost: 60000
+      value: 100
+  tax:
+    1:
+      cost: 0
+      value: 20
+    2:
+      cost: 15000
+      value: 15
+    3:
+      cost: 30000
+      value: 10
+    4:
+      cost: 60000
+      value: 5
+    5:
+      cost: 120000
+      value: 0
+
+# ===================================================
+#        Supported Plugins (Hooks & Integrations)
+# ===================================================
+# L-Farmer operates fully integrated with other popular plugins.
+# You can toggle each integration and customize permissions here.
+
+hooks:
+  # L-Claim Integration (Town and Land Claim Protection)
+  lclaim:
+    enabled: true
+    prevent_wilderness: true       # Prevent placing farmers in the wilderness / unowned territory
+    disabled_worlds: []            # Worlds where placing farmers is disabled for this hook
+    disabled_towns: []             # Towns where placing farmers is disabled
+    allow_mayor: true              # Allow the town mayor to place and manage farmers
+    allow_trusted: true            # Allow trusted players in the town to access farmers
+    allow_members_with_build: true # Allow town or plot members with BUILD permission
+    allow_plot_permissions: true   # Enable plot-level permission checks
+    require_interact_for_access: true # Require INTERACT permission to open farmer menu
+    require_container_for_access: true # Require CONTAINER permission to open farmer menu
+
+  # WorldGuard Integration (Region Protection)
+  worldguard:
+    enabled: true
+    prevent_wilderness: true       # Prevent placing farmers outside regions (unowned wilderness)
+    disabled_regions:              # Regions where placing farmers is strictly forbidden
+      - "spawn"
+      - "pvp_arena"
+      - "warzone"
+    disabled_worlds: []            # Worlds where placing farmers is disabled for WorldGuard
+    allow_owners: true             # Allow region owners to place and manage farmers
+    allow_members: true            # Allow region members to access farmers
+    require_build_flag: true       # Require the BUILD flag to be ALLOW in the region
+
+  # GriefPrevention Integration (Claim Protection)
+  griefprevention:
+    enabled: true
+    prevent_wilderness: true       # Prevent placing farmers outside claims (wilderness)
+    disabled_worlds: []            # Worlds where placing farmers is disabled for this hook
+    allow_owners: true             # Allow claim owners to place and manage farmers
+    allow_trusted: true            # Allow players with /trust permission
+
+  # Lands Integration (Land Management)
+  lands:
+    enabled: true
+    prevent_wilderness: true       # Prevent placing farmers outside lands (wilderness)
+    disabled_lands: []             # Land names where placing farmers is disabled
+    disabled_worlds: []            # Worlds where placing farmers is disabled for this hook
+    allow_owners: true             # Allow land owners to place and manage farmers
+    allow_members: true            # Allow land members to access farmers
+    allow_trusted: true            # Allow trusted players to access farmers
+
+  # SuperiorSkyblock2 Integration (Island Protection)
+  superiorskyblock:
+    enabled: true
+    prevent_wilderness: true       # Prevent placing farmers outside islands (unowned void/space)
+    disabled_worlds: []            # Worlds where placing farmers is disabled for this hook
+    allow_leader: true             # Allow island leader to place and manage farmers
+    allow_members: true            # Allow island members to access farmers
+
+  # BentoBox Integration (BSkyBlock / AcidIsland etc.)
+  bentobox:
+    enabled: true
+    prevent_wilderness: true       # Prevent placing farmers outside islands (unowned areas)
+    disabled_worlds: []            # Worlds where placing farmers is disabled for this hook
+    allow_owner: true              # Allow island owner to place and manage farmers
+    allow_members: true            # Allow island members to access farmers
+
+  # Towny Integration (Town & Nation System)
+  towny:
+    enabled: true
+    prevent_wilderness: true       # Prevent placing farmers outside towns (wilderness)
+    disabled_towns: []             # Towns where placing farmers is disabled
+    disabled_worlds: []            # Worlds where placing farmers is disabled for this hook
+    allow_mayor: true              # Allow the mayor to place and manage farmers
+    allow_residents: true          # Allow town residents to access farmers
+
+  # PlotSquared Integration (Plot Worlds)
+  plotsquared:
+    enabled: true
+    prevent_wilderness: true       # Prevent placing farmers outside plots (roads/unclaimed plots)
+    disabled_worlds: []            # Worlds where placing farmers is disabled for this hook
+    allow_owners: true             # Allow plot owners to place and manage farmers
+    allow_trusted: true            # Allow players with /plot trust permission
+
+  # Vault Integration (Main Economy: EssentialsX, CMI etc.)
+  vault:
+    enabled: true
+
+  # PlayerPoints Integration (Points Economy)
+  playerpoints:
+    enabled: true                  # Used if Vault is not installed or disabled
+
+  # ShopGUIPlus Integration (Dynamic Market Sell Prices)
+  shopguiplus:
+    enabled: true                  # Fetch market sell prices directly from ShopGUI+
+
+  # EconomyShopGUI Integration (Dynamic Market Sell Prices)
+  economyshopgui:
+    enabled: true                  # Fetch market sell prices directly from EconomyShopGUI
+
+  # PlaceholderAPI Integration (%lfarmer_...% placeholders)
+  placeholderapi:
+    enabled: true
+
+  # ItemsAdder Integration (Custom Items & Models)
+  itemsadder:
+    enabled: true

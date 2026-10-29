@@ -1,0 +1,47 @@
+# ===================================================
+#             L-Farmer Price Configuration
+#                     prices.yml
+# ===================================================
+# The unit prices specified here are utilized when
+# neither ShopGUIPlus nor EconomyShopGUI is installed,
+# or when an item has no price defined in those plugins.
+
+prices:
+  # Agricultural Crops
+  WHEAT: 5.0
+  WHEAT_SEEDS: 1.0
+  CARROT: 4.0
+  POTATO: 4.0
+  BEETROOT: 4.0
+  BEETROOT_SEEDS: 1.0
+  NETHER_WART: 8.0
+  COCOA_BEANS: 6.0
+  SUGAR_CANE: 6.0
+  CACTUS: 5.0
+  MELON_SLICE: 2.0
+  MELON: 18.0
+  PUMPKIN: 15.0
+  SWEET_BERRIES: 3.0
+  BAMBOO: 3.0
+
+  # Mob & Spawner Drops
+  ROTTEN_FLESH: 2.0
+  BONE: 3.0
+  STRING: 4.0
+  SPIDER_EYE: 5.0
+  GUNPOWDER: 7.0
+  ENDER_PEARL: 12.0
+  BLAZE_ROD: 15.0
+  GHAST_TEAR: 30.0
+  MAGMA_CREAM: 10.0
+  SLIME_BALL: 8.0
+  LEATHER: 6.0
+  BEEF: 4.0
+  PORKCHOP: 4.0
+  CHICKEN: 3.0
+  MUTTON: 4.0
+  FEATHER: 2.0
+  EGG: 2.0
+  WHITE_WOOL: 5.0
+  IRON_INGOT: 25.0
+  POPPY: 1.0
