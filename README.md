@@ -1,4 +1,4 @@
-# L-Farmer 🌾
+# L-Farmer 
 
 Modern, modüler, Folia ve çoklu platform (Paper, Purpur, Spigot, Folia) destekli gelişmiş Minecraft Çiftçi eklentisi.
 
@@ -8,7 +8,7 @@ Modern, modüler, Folia ve çoklu platform (Paper, Purpur, Spigot, Folia) destek
 
 ---
 
-## ✨ Özellikler
+##  Özellikler
 
 1. **Çoklu Platform & Folia Desteği:**
    - Standart Spigot / Paper / Purpur sunucularında standart zamanlayıcıları kullanır.
@@ -53,7 +53,7 @@ Modern, modüler, Folia ve çoklu platform (Paper, Purpur, Spigot, Folia) destek
 
 ---
 
-## 📌 Komutlar ve Yetkiler
+##  Komutlar ve Yetkiler
 
 | Komut | Açıklama | Yetki |
 |---|---|---|
@@ -70,7 +70,7 @@ Limit Yetkileri: `farmer.limit.<sayı>` (Örn: `farmer.limit.5`) veya sınırsı
 
 ---
 
-## 🏷️ PlaceholderAPI Değişkenleri
+##  PlaceholderAPI Değişkenleri
 
 - `%lfarmer_placed%` - Oyuncunun koyduğu aktif çiftçi sayısı
 - `%lfarmer_max%` - Oyuncunun koyabileceği maksimum çiftçi limiti
@@ -83,10 +83,4 @@ Limit Yetkileri: `farmer.limit.<sayı>` (Örn: `farmer.limit.5`) veya sınırsı
 
 ---
 
-## 🛠️ Derleme (Build)
-
-Projeyi derlemek için:
-```bash
-mvn clean package
-```
-Oluşturulan `.jar` dosyası `target/L-Farmer-1.0.0.jar` konumundadır.
+discord ve destek : https://discord.gg/W23eQgPFKM
